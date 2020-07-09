@@ -1,0 +1,269 @@
+@import url(media.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans Condensed', sans-serif;
+    background:url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+header{
+    width: 100%;
+    height: 80px;
+    background: black;
+    color: white;
+    padding: 10px;
+    font-family: 'Special Elite', cursive;
+}
+
+.contenedor{
+    width: 98%;
+    margin: auto;
+}
+
+header .contenedor{
+    display: table;
+}
+.image-logo{
+    float: left;
+}
+
+section {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/*---------------------------------------------MENU--------------------------------------*/
+
+#menu-bar{
+    display: none;   
+}
+
+header label{
+    float: right;
+    font-size: 28px;
+    margin: 6px 0;
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 150vh;
+    background: rgba(51,51,51,0.9);
+    transition: all 0.9s;
+    transform: translateX(100%);
+
+}
+
+.menu a{
+    display: block;
+    color: white;
+    height: 50px;
+    text-decoration: none;
+    padding: 15px;
+    text-align: right;
+    border-bottom: 1px solid rgb(0, 255, 0);
+}
+    
+.menu a:hover{
+    background: rgba(0, 255, 0, 0.5);
+    color: black;
+}
+
+#menu-bar:checked ~ .menu {
+    transform: translateX(0%);
+}
+
+/*--------------------------------------BANNER-------------------------------*/
+
+.banner {
+    margin-top: 20px;
+    text-align: center;
+}
+.banner img{
+    width: 100%;
+    max-width: 150px;
+}
+
+.banner2{
+    margin: 0;
+    text-align: center;
+}
+
+.banner2 img{
+    width: 100%;
+    max-width: 300px;
+}
+
+/*----------------------------------------HISTORIA----------------------------------*/
+
+.historia{
+    width: 100%;
+    max-width: 320px;
+    background-color: #1A1A1A;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.historia p{
+    margin-top: 20px;
+}
+
+.titulo{
+    font-size: 25px;
+    text-align: center;
+    color: #00FF00;
+    font-family: 'Special Elite', cursive;
+}
+
+.enlace{
+    text-decoration: none;
+    color: #00FF00;
+}
+
+/*--------------------------------------BLOG-------------------------------------*/
+.blog{
+    width: 100%;
+    max-width: 320px;
+    background-color: #1A1A1A;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.blog .cont01{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.blog article{
+    margin: 20px;
+}
+
+.blog img{
+    width: 100%;
+    max-width: 280px;
+}
+
+.blog h2{
+    width: 100%;
+    max-width: 280px;
+    height: 50px;
+    background-color: black;
+    font-size: 15px;
+    text-align: center;
+    padding: 5px;
+}
+
+.blog h2 a{
+    text-decoration: none;
+    color:white;
+    text-align: center;
+    
+}
+
+/*--------------------------------------------FOOTER-------------------------------*/
+
+.cont02{
+    width: 100%;
+    height: 120px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+    padding: 20px 20px;
+    margin: 0;
+}
+
+/*-----------------------------------------------TABLET---------------------------------*/
+
+
+@media screen and (min-width: 768px){
+  
+    /*---BANNER---*/
+
+    .banner img{
+        width: auto;
+        max-width: 250px;
+    }
+
+    /*---HISTORIA---*/
+
+    .cont01{
+        width: 70%;
+    }
+
+    .historia{
+        width: auto;
+        max-width: 720px;
+    }
+    .blog {
+        width: auto;
+        max-width: 720px;
+    }
+}
+
+/*-------------------------------------------------ESCRITORIO--------------------------*/
+
+
+@media screen and (min-width: 1280px){
+    
+    /*---MENU----*/
+
+    .menu{
+        position: static;
+        width: auto;
+        height: auto;
+        transform: translateX(0%);
+        float: right;
+        display: flex;
+    }
+
+    .menu a{
+        border: none;
+    }
+
+    header label {
+        display: none;
+    }
+
+    /*---BANNER----*/
+
+    .banner img{
+        width: auto;
+        max-width: 300px;
+    }
+
+    /*----HISTORIA---*/
+
+    .cont01{
+        width: auto;
+    }
+
+    .blog {
+        width: auto;
+        max-width: 1280px;
+    }
+    .historia{
+        padding-left: 300px;
+        padding-right: 300px;
+        width: auto;
+        max-width: 1280px;
+        text-align: center;
+    }
+}
