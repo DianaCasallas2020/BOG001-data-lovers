@@ -1,18 +1,39 @@
 //import { example } from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
-window.onload = function results (allCharacters){
-    let allData = data.results;
-    let card = ''
-         for ( let i = 0;  i < allData.length; i++) {
-            card += `
-            <li class= card>
-            <h2 class="name">${allData[i].name}</h2>
-            <img class ="image_pokemon" src="${allData[i].image}" alt="rick-image">
-            <button class="btn_aboutMe">About me</button> 
-            `
-       };
-       document.getElementById('listOfPokemon').innerHTML = card;
-      };
+let charactersCard = document.getElementById('allCharacters'),
+     boton = document.getElementById('btnDetails');
 
-console.log(example, data);
+
+window.onload = function characters () {
+  let allData = data.results;
+  let card = ''
+  for (let i = 0; i < allData.length; i++) {
+    card += `
+          <article class="cont03">
+               <img class ="image_characters" src="${allData[i].image}" alt="rick-and-morty-image">
+               <h2 class="name">${allData[i].name}</h2>
+               <button id="btnDetails" class="informacion">Details</button>
+          </article>`
+  };
+  charactersCard.innerHTML= card;
+};
+
+
+boton.addEventListener('click', () => {
+     
+})
+
+
+
+
+
+
+/*boton.addEventListener('click', () => {
+     let allData = data.results;
+    let card = '';
+         for ( let i = 0;  i < allData.length; i++) {
+            card += `<h2 class="name">${allData[i].species}</h2>`
+       };
+       document.getElementById('allSpecies').innerHTML= card;
+      });*/

@@ -1,0 +1,51 @@
+#allCharacters{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cont03{
+    width: 100%;
+    max-width: 150px;
+    background: #1A1A1A;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.image_characters{
+    width: 100%;
+}
+
+.name{
+    font-size: 16px;
+    margin: 10px 0 10px 0;
+}
+
+.informacion {
+    width: 100%;
+    max-width: 300px;
+    font-family: 'Special Elite', cursive;
+    background-color: black;
+    color: #00ff00;
+    border: none;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 20px;  
+}
+.informacion:hover {
+    background-color: green;
+    border: 2px solid green;
+    color: black;
+}
+
+/*-----------------------------------------------ESCRITORIO---------------------------------*/
+
+
+/*@media screen and (min-width: 1280px){
+    body{
+        width: 100%;
+        max-width: 1280px;
+        text-align: center;
+    }
+} */
