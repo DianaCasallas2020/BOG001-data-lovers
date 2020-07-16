@@ -31,7 +31,7 @@
     border: none;
     text-decoration: none;
     padding: 10px;
-    font-size: 20px;  
+    font-size: 12px;  
 }
 .informacion:hover {
     background-color: green;
@@ -39,13 +39,74 @@
     color: black;
 }
 
-/*-----------------------------------------------ESCRITORIO---------------------------------*/
+/*-----------------------------------------------MODAL---------------------------------*/
 
+.flex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-/*@media screen and (min-width: 1280px){
-    body{
-        width: 100%;
-        max-width: 1280px;
-        text-align: center;
-    }
-} */
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 255, 0, 0.452);
+}
+
+.contenido-modal{
+    position: relative;
+    background-color: black;
+    margin: auto;
+    width: 30%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.close{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: #00ff00;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header{
+    padding: 20px;
+    background: #1A1A1A;
+}
+
+.infoPersoanje{
+    background: red;
+    padding: 20px;
+}
+
+.btnEpisodios{
+    width: 100%;
+    max-width: 300px;
+    font-family: 'Special Elite', cursive;
+    background-color: black;
+    color: #00ff00;
+    border: none;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.btnEpisodios:hover {
+    background-color: green;
+    border: 2px solid green;
+    color: black;
+}
+

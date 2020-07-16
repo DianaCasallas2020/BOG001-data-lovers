@@ -1,39 +1,42 @@
 //import { example } from './data.js';
 import data from './data/rickandmorty/rickandmorty.js';
 
-let charactersCard = document.getElementById('allCharacters'),
-     boton = document.getElementById('btnDetails');
+
+const allCharacters = document.getElementById('allCharacters'),
+     modal = document.getElementById('myModal'),
+     flex = document.getElementById('flex'),
+     open = document.querySelectorAll('#btnDetails')
+     close = document.getElementById('close'),
+     
 
 
 window.onload = function characters () {
-  let allData = data.results;
-  let card = ''
-  for (let i = 0; i < allData.length; i++) {
-    card += `
-          <article class="cont03">
-               <img class ="image_characters" src="${allData[i].image}" alt="rick-and-morty-image">
-               <h2 class="name">${allData[i].name}</h2>
-               <button id="btnDetails" class="informacion">Details</button>
-          </article>`
+     let allPersonage = data.results;
+     let file = ''
+          for (let i = 0; i < allPersonage.length; i++) {
+          file += `
+               <section class="cont03">
+                    <img class ="image_characters" src="${allPersonage[i].image}" alt="rick-and-morty-image">
+                    <h2 class="name">${allPersonage[i].name}</h2>
+                    <input type="button" value="Details" id="btnDetails" class="informacion"></input>
+               </section>`
   };
-  charactersCard.innerHTML= card;
+  allCharacters.innerHTML= file;
 };
 
 
-boton.addEventListener('click', () => {
-     
+
+open.addEventListener('click', () =>{
+    modal.style.display = 'block';
+});  
+
+close.addEventListener('click', () =>{
+     modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) =>{
+     if (e.target = flex){
+          modal.style.display = 'none'; 
+     }
 })
-
-
-
-
-
-
-/*boton.addEventListener('click', () => {
-     let allData = data.results;
-    let card = '';
-         for ( let i = 0;  i < allData.length; i++) {
-            card += `<h2 class="name">${allData[i].species}</h2>`
-       };
-       document.getElementById('allSpecies').innerHTML= card;
-      });*/
+ 

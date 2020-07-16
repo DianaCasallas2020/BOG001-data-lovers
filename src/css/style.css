@@ -6,9 +6,7 @@
 
 body{
     font-family: 'Open Sans Condensed', sans-serif;
-    background:url(../img/fondo.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url(../img/fondo.png); 
 }
 
 header{
