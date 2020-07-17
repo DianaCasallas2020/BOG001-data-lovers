@@ -5,8 +5,8 @@ import data from './data/rickandmorty/rickandmorty.js';
 const allCharacters = document.getElementById('allCharacters'),
      modal = document.getElementById('myModal'),
      flex = document.getElementById('flex'),
-     open = document.querySelectorAll('#btnDetails')
-     close = document.getElementById('close'),
+     open = document.querySelectorAll('#btnDetails'),
+     close = document.getElementById('close');
      
 
 
