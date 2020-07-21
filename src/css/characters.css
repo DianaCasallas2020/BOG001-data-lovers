@@ -4,6 +4,10 @@
     justify-content: center;
 }
 
+#allFilter{
+    width: 20%;
+}
+
 .cont03{
     width: 100%;
     max-width: 150px;
@@ -22,7 +26,12 @@
     margin: 10px 0 10px 0;
 }
 
-.informacion {
+.species{
+    font-size: 16px;
+    color: white;
+}
+
+#seeMore {
     width: 100%;
     max-width: 300px;
     font-family: 'Special Elite', cursive;
@@ -33,7 +42,7 @@
     padding: 10px;
     font-size: 12px;  
 }
-.informacion:hover {
+#seeMore:hover {
     background-color: green;
     border: 2px solid green;
     color: black;

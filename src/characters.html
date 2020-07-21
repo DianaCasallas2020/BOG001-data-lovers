@@ -48,28 +48,27 @@
         <section class="banner">
           <img src="img/primerimg.png" alt="Imagen Rick and Morty">
         </section>
-        
-        <section id="allCharacters">
-          <button id="btnAllSeeMore" class="informacion">See More</button>
-        </section>
-
-        <section id="myModal" class="modal">
-          <article id="flex" class="flex">
+      
+        <section class="modal" id="myModal">
+          <div class="flex" id="flex">
             <div class="contenido-modal">
-              <div class="modal-header flex">
+              <article class="modal-header flex">
+                <h2 id="idName"></h2>
                 <span class="close" id="close">&times;</span>
-              </div>
-              <div class="infoPersoanje">
-              <button class="btnEpisodios" id="btnEpisodios">Episodes</button>
+              </article>
+              <article class="infoPersoanje">
+                <div id="imgModal"></div>
+                <div id="contModal"></div>
+              </article>
             </div>
           </div>
-          </article>
-       </section>
+        </section>
 
         <section>
-            <button id="seeMore">Ver más</button>
+          <button id="seeMore">See More</button>
         </section>
-        <section class="banner2">
+
+        <section class="banner2" >
           <img src="img/segundimg.png" alt="Familia Rick and Morty">
         </section>
 
@@ -88,7 +87,7 @@
 
     </section>
 
-    <script src="main.js" type="module"></script>
+   
   </body>
-
+  <script src="main.js" type="module"></script>
 </html>
