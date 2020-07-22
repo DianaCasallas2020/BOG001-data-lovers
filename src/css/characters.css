@@ -1,11 +1,7 @@
-#allCharacters{
+#fileCharacters{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-#allFilter{
-    width: 20%;
 }
 
 .cont03{
@@ -15,15 +11,38 @@
     margin: 10px;
     padding: 20px;
     text-align: center;
+    list-style:none;
+
 }
 
-.image_characters{
+.cont03:hover{
+    animation: bounce 0.5s linear;
+}
+
+@keyframes bounce {
+    20%{
+        transform: translateY(-6px);
+    }
+
+    40%{
+        transform: translateY(0px);
+    }
+
+    60%{
+        transform: translateY(-2px);
+    }
+    80%{
+        transform: translateY(-0px);
+    }
+}
+
+.imgCharacteres{
     width: 100%;
 }
 
 .name{
     font-size: 16px;
-    margin: 10px 0 10px 0;
+    margin: 10px 0 0 0;
 }
 
 .species{
@@ -40,7 +59,8 @@
     border: none;
     text-decoration: none;
     padding: 10px;
-    font-size: 12px;  
+    font-size: 12px;
+    cursor: pointer;
 }
 #seeMore:hover {
     background-color: green;
@@ -49,40 +69,42 @@
 }
 
 /*-----------------------------------------------MODAL---------------------------------*/
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 255, 0, 0.452);
+}
+
 
 .flex{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.modal{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    overflow: auto;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 255, 0, 0.452);
+    align-items: center;   
 }
 
 .contenido-modal{
     position: relative;
     background-color: black;
     margin: auto;
-    width: 30%;
+    width: 100%;
+    max-width: 300px;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
     text-align: center;
 }
 
 .close{
+    background-color: black;
     color: white;
     font-size: 30px;
     font-weight: bold;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .close:hover {
@@ -91,13 +113,34 @@
     cursor: pointer;
 }
 
-.modal-header{
-    padding: 20px;
-    background: #1A1A1A;
+.nameModal{
+    color: #00ff00;
+    font-size: 30px;
 }
 
-.infoPersoanje{
-    background: red;
+small{
+    color: #808080;
+    font-size: 18px;
+}
+
+.textModal{
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.modal-header{
+    padding: 20px;
+    background: black;
+}
+
+.infoPersonaje{
+    background: #1A1A1A;
+    text-align: left;
+    padding: 0px 20px 20px 20px;
+}
+
+.imgPersonaje{
+    background: #1A1A1A;
     padding: 20px;
 }
 
@@ -111,6 +154,7 @@
     text-decoration: none;
     padding: 10px;
     font-size: 12px;
+    cursor: pointer;
 }
 
 .btnEpisodios:hover {
