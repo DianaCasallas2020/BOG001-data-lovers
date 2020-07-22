@@ -2,6 +2,7 @@
 
 const invocation = new XMLHttpRequest();
 const fileCharacter = document.getElementById('fileCharacters');
+const fileEpisodes = document.getElementById('fileEpisodes');
 
 async function get(url) {
    try {
@@ -24,7 +25,8 @@ const fetchCharacters = async () => {
             name: data.name,
             id: index + 1,
             image: data.image,
-            species: data.species, 
+            species: data.species,
+            episode: data.episode,
          }));
          displayCharacters(allCharacters);
       });
@@ -47,6 +49,9 @@ const displayCharacters = (allCharacters) =>{
       fileCharacter.innerHTML = characterHTMLString;
 
 };
+
+
+
 window.selectCharacter = async (id) => {
    const url = `https://rickandmortyapi.com/api/character/${id}`;
    const res = await fetch(url);
@@ -72,6 +77,7 @@ const loadModal = (allPersonage) => {
                   <p class="textModal"><small>Gender: </small><br>${allPersonage.gender}</p>
                   <p class="textModal"><small>First seen in: </small><br>${allPersonage.origin.name}</p>
                   <p class="textModal"><small>Last known location: </small><br>${allPersonage.location.name}</p>
+                  <p class="text"><small>Episodes: </small><br>${allPersonage.episode}</p>
                </article>
             </div>
          </div>
@@ -83,5 +89,6 @@ const loadModal = (allPersonage) => {
 window.closeModal = async () => {
    const modal = document.querySelector('#myModal');
    modal.parentElement.removeChild(modal);
-}
+};
+
 fetchCharacters();

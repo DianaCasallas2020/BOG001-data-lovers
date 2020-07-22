@@ -1,3 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans Condensed', sans-serif;
+    background: url(../img/fondo.png); 
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: black;
+    color: white;
+    padding: 10px;
+    font-family: 'Special Elite', cursive;
+}
+
+.image-logo{
+    float: left;
+}
+
+/*-------------MENU----------*/
+
+#menu-bar{
+    display: none;   
+}
+
+header label{
+    float: right;
+    font-size: 28px;
+    margin: 6px 0;
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 150vh;
+    background: black;
+    transition: all 0.9s;
+    transform: translateX(100%);
+}
+
+.menu a{
+    display: block;
+    color: white;
+    height: 50px;
+    text-decoration: none;
+    padding: 15px;
+    text-align: right;
+    border-bottom: 1px solid rgb(0, 255, 0);
+}
+    
+.menu a:hover{
+    background: rgba(0, 255, 0, 0.5);
+    color: black;
+}
+
+#menu-bar:checked ~ .menu {
+    transform: translateX(0%);
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul ul{
+    display: none;
+}
+
+.menu a span {
+    margin-left: 10px;
+}
+
+.menu ul li:hover ul{
+    display: none;
+}
+
+/*--------------------------------------BANNER-------------------------------*/
+
+.banner {
+    margin-top: 20px;
+    text-align: center;
+}
+.banner img{
+    width: 100%;
+    max-width: 150px;
+}
+
+.banner2{
+    margin: 0;
+    text-align: center;
+}
+
+.banner2 img{
+    width: 100%;
+    max-width: 300px;
+}
+
+/*--------------------------------------------FOOTER-------------------------------*/
+
+.cont02{
+    width: 100%;
+    height: 120px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+    padding: 20px 20px;
+    margin: 0;
+}
+
+/*---------------------FICHA PERSONAJE--------------------*/
+
 #fileCharacters{
     display: flex;
     flex-wrap: wrap;
@@ -89,7 +209,7 @@
 
 .contenido-modal{
     position: relative;
-    background-color: black;
+    background-color: #1A1A1A;
     margin: auto;
     width: 100%;
     max-width: 300px;
@@ -113,9 +233,15 @@
     cursor: pointer;
 }
 
+.name{
+    color: #00ff00;
+    font-size: 15px;
+}
+
 .nameModal{
     color: #00ff00;
     font-size: 30px;
+    font-family: 'Special Elite', cursive;
 }
 
 small{
@@ -126,6 +252,11 @@ small{
 .textModal{
     color: whitesmoke;
     font-size: 20px;
+}
+
+.text{
+    color: whitesmoke;
+    font-size: 18px;
 }
 
 .modal-header{
@@ -145,8 +276,7 @@ small{
 }
 
 .btnEpisodios{
-    width: 100%;
-    max-width: 300px;
+    margin: 0px 20px 20px 20px; 
     font-family: 'Special Elite', cursive;
     background-color: black;
     color: #00ff00;
@@ -162,4 +292,94 @@ small{
     border: 2px solid green;
     color: black;
 }
+
+
+.episodes{
+    position: relative;
+    background-color: #1A1A1A;
+    margin: auto;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+
+/*-----------------------------------------------TABLET---------------------------------*/
+
+
+@media screen and (min-width: 768px){
+
+    /*---MENU---*/
+
+   .menu ul li:hover ul{
+       display: none;
+   }
+
+   /*---BANNER---*/
+
+   .banner img{
+       width: auto;
+       max-width: 250px;
+   }
+
+/*-------------------------------------------------ESCRITORIO--------------------------*/
+
+
+@media screen and (min-width: 1280px){
+
+    main{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .contenedor{
+        width: 100%;
+        max-width: 1280px;
+    }
+    
+        
+        /*---MENU----*/
+    
+        .menu{
+            position: static;
+            width: auto;
+            height: auto;
+            transform: translateX(0%);
+            float: right;
+            display: flex;
+        }
+    
+        .menu a{
+            border: none;
+        }
+    
+        header label {
+            display: none;
+        }
+    
+        .menu ul{
+            display: flex;
+        }
+    
+        .menu ul li:hover ul{
+            display: block;
+            position: absolute;
+            background: rgba(0, 255, 0, 0.5);
+            color: black;
+        }
+      
+    
+        /*---BANNER----*/
+    
+        .banner img{
+            width: auto;
+            max-width: 300px;
+        }
+    
+        .banner2 img{
+            width: auto;
+            max-width: 400px;
+        }
 
