@@ -15,7 +15,7 @@ header{
     background: black;
     color: white;
     padding: 10px;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Special Elite', cursive; 
 }
 
 .image-logo{
@@ -81,6 +81,28 @@ header label{
     display: none;
 }
 
+/*--------------------------------------BUSCADOR-------------------------------*/
+.menu .buscador{
+    text-align: right;
+    display: block;
+    color: white;
+    height: 50px;
+    text-decoration: none;
+    padding: 15px;
+    border-bottom: 1px solid rgb(0, 255, 0);
+}
+
+.buscador input{
+    font-family: 'Special Elite', cursive;
+    transform: translateY(-20%);
+    background-color: #1A1A1A;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 5px;
+    text-align: right;
+    font-size: 15px;
+}
 /*--------------------------------------BANNER-------------------------------*/
 
 .banner {
@@ -116,7 +138,7 @@ header label{
     margin: 0;
 }
 
-/*---------------------FICHA PERSONAJE--------------------*/
+/*---------------------FICHA POR PERSONAJE--------------------*/
 
 #fileCharacters{
     display: flex;
@@ -212,7 +234,7 @@ header label{
     background-color: #1A1A1A;
     margin: auto;
     width: 100%;
-    max-width: 300px;
+    max-width: 200px;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
     text-align: center;
 }
@@ -220,7 +242,7 @@ header label{
 .close{
     background-color: black;
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     border: none;
     text-decoration: none;
@@ -235,23 +257,23 @@ header label{
 
 .name{
     color: #00ff00;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .nameModal{
     color: #00ff00;
-    font-size: 30px;
-    font-family: 'Special Elite', cursive;
+    font-size: 15px;
+    font-family:'Special Elite', cursive;
 }
 
 small{
     color: #808080;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .textModal{
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .text{
@@ -320,8 +342,36 @@ small{
 
    .banner img{
        width: auto;
-       max-width: 250px;
+       max-width: 300px;
    }
+
+   /*----MODAL----*/
+
+   .contenido-modal{
+    
+    width: 100%;
+    max-width: 300px;   
+}
+
+.close{
+    font-size: 25px;
+}
+
+.nameModal{
+    font-size: 20px; 
+}
+
+small{
+    font-size: 20px;
+}
+
+.textModal{
+    font-size: 25px;
+}
+
+.btnEpisodios{
+    font-size: 20px; 
+}
 
 /*-------------------------------------------------ESCRITORIO--------------------------*/
 
@@ -338,8 +388,12 @@ small{
         width: 100%;
         max-width: 1280px;
     }
-    
-        
+
+    .menu .buscador{
+        border-bottom: none;
+    }
+
+
         /*---MENU----*/
     
         .menu{
@@ -382,4 +436,3 @@ small{
             width: auto;
             max-width: 400px;
         }
-
