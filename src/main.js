@@ -1,9 +1,12 @@
 //import { orderNames } from './data.js';
 
 const fileCharacter = document.getElementById('fileCharacters');
+const pagination = document.getElementById('pagination');
 const fileEpisodes = document.getElementById('fileEpisodes');
 const searchBar = document.getElementById('searchBar');
 let allCharacters = [];
+let allPersonage =[];
+let allPages = [];
 
 searchBar.addEventListener('keyup', (e) => {
    const searchString = e.target.value.toLowerCase();
@@ -34,8 +37,8 @@ const fetchCharacters = async () => {
    promises.push(fetch(url).then(res => res.json()));
 };
 
-      Promise.all(promises).then(results => {
-         
+      Promise.all(promises).then( results => {
+
          allCharacters = results.map( data => ({
             name: data.name,
             id: data.id,
@@ -46,11 +49,36 @@ const fetchCharacters = async () => {
             origin: data.origin.name,
             location: data.location.name,
          }));
-         console.log(allCharacters);
          displayCharacters(allCharacters);
       });
 
 };
+
+const fetchAllPages = () => {
+   const url = `https://rickandmortyapi.com/api/character/`;
+   fetch(url)
+   .then (res => res.json())
+   .then (data => {
+      allPages = data.info;
+   });
+   forPages(allPages)
+};
+
+const forPages = (allPages) =>{
+   const pagesHTMLString = allPersonage => {
+
+   `<section>
+   <button id="seeMore">Previus</button>
+   <button id="seeMore">Next</button>
+   </section>
+   `
+   };
+
+   pagination.innerHTML = pagesHTMLString;
+
+};
+
+fetchAllPages();
 
 const displayCharacters = (allCharacters) =>{
    const characterHTMLString = allCharacters.map ((allPersonage) =>
@@ -69,8 +97,8 @@ const displayCharacters = (allCharacters) =>{
 window.selectCharacter = async (id) => {
    const url = `https://rickandmortyapi.com/api/character/${id}`;
    const res = await fetch(url);
-   const allPersonage = await res.json();
-      
+   allPersonage = await res.json();
+
    loadModal(allPersonage);
 };
 
@@ -93,7 +121,7 @@ const loadModal = (allPersonage) => {
                   <p class="textModal"><small>First seen in </small><br>${allPersonage.origin.name}</p>
                   <p class="textModal"><small>Last known location </small><br>${allPersonage.location.name}</p>
                </article>
-               <button class="btnEpisodios" onclick="()">Episodes</button>
+               <button class="btnEpisodios" onclick="openEpisodes()">Episodes</button>
             </div>
          </div>
       </section>`;
@@ -104,7 +132,6 @@ window.closeModal = async () => {
    const modal = document.querySelector('#myModal');
    modal.parentElement.removeChild(modal);
 };
-
 
 
 fetchCharacters();

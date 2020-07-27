@@ -428,8 +428,8 @@ small{
         /*---BANNER----*/
     
         .banner img{
-            width: auto;
-            max-width: 300px;
+            width: 100%;
+            max-width: 400px;
         }
     
         .banner2 img{
