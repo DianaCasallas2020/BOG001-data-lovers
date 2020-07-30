@@ -6,7 +6,18 @@ const searchBar = document.getElementById('searchBar');
 const totalCharacters = document.getElementById('totalCharacters');
 let allCharacters = [];
 let defaultPage = 1;
+let allPages = [];
 
+
+searchBar.addEventListener('keyup', (e) => {
+   const searchString = e.target.value.toLowerCase();
+   const filterCharacters = allCharacters.filter(character =>{
+      return character.name.toLowerCase().includes(searchString) ||
+      character.status.toLowerCase().includes(searchString) ||
+      character.species.toLowerCase().includes(searchString);
+   });
+   displayCharacters(filterCharacters);
+});
 
 async function get(url) {
    try {
@@ -17,28 +28,12 @@ async function get(url) {
    };
 };
 
-window.searchBar.addEventListener('keyup', (e) => {
-   const searchString = e.target.value.toLowerCase();
-   const filterCharacters = allCharacters.filter(character => {
-
-      return character.name.toLowerCase().includes(searchString) ||
-         character.species.toLowerCase().includes(searchString) ||
-         character.status.toLowerCase().includes(searchString) ||
-         character.origin.toLowerCase().includes(searchString) ||
-         character.location.toLowerCase().includes(searchString);
-
-            
-   });
-   console.log(filterCharacters);
-   displayCharacters(filterCharacters);
-});
-
 const Characters = async () => {
    const promises = [];
 
    const url = `https://rickandmortyapi.com/api/character/?page=${defaultPage}`;
    promises.push(fetch(url).then(res => res.json().then(data => {
-      const allPages = data.info.pages;
+      allPages = data.info.pages;
       allCharacters = data.results;
       allCharacters.map(result => ({
          name: result.name,
@@ -48,14 +43,14 @@ const Characters = async () => {
          episode: result.episode,
          status: result.status,
          origin: result.origin.name,
-         location: result.location.name,
+         location: result.location.name,  
       }));
+      //console.log(allCharacters);
       displayCharacters(allCharacters)
    })))
 };
 
 window.more = async () => {
-   console.log(more);
    if (defaultPage <= allPages) {
       defaultPage += 1;
       Characters();
