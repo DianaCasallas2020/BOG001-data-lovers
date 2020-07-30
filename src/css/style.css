@@ -22,6 +22,11 @@ header{
     float: left;
 }
 
+.image-logo:hover{
+    box-shadow: 0 0 10px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+    border-radius: 40px;
+}
+
 /*---------------------------------------------MENU--------------------------------------*/
 
 #menu-bar{
@@ -57,7 +62,8 @@ header label{
 }
     
 .menu a:hover{
-    background: rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 10px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00;
+    background: #00ff00;
     color: black;
 }
 

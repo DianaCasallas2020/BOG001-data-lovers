@@ -1,103 +1,104 @@
-//import { orderNames } from './data.js';
+//import { numOfCharacters } from './data.js';
 
 const fileCharacter = document.getElementById('fileCharacters');
 const pagination = document.getElementById('pagination');
-const fileEpisodes = document.getElementById('fileEpisodes');
 const searchBar = document.getElementById('searchBar');
+const totalCharacters = document.getElementById('totalCharacters');
 let allCharacters = [];
-let allPersonage =[];
-let allPages = [];
+let defaultPage = 1;
 
-searchBar.addEventListener('keyup', (e) => {
-   const searchString = e.target.value.toLowerCase();
-   console.log(searchString);
-   const filterCharacters = allCharacters.filter(character => {
-      return character.name.toLowerCase().includes(searchString) ||
-      character.species.toLowerCase().includes(searchString) ||
-      character.status.toLowerCase().includes(searchString) ||
-      character.origin.toLowerCase().includes(searchString)||
-      character.location.toLowerCase().includes(searchString)
-   });
-   displayCharacters(filterCharacters);
-});
 
 async function get(url) {
    try {
       let data = await fetch(url)
       return await data.json()
    } catch (error) {
-    console.log(`error con el servicio ${url}`);
+      console.log(`error con el servicio ${url}`);
    };
 };
 
-const fetchCharacters = async () => {
-  const promises = [];
-   for (let i = 1; i < 494; i++){
-      const url = `https://rickandmortyapi.com/api/character/${i}`;
-   promises.push(fetch(url).then(res => res.json()));
-};
+window.searchBar.addEventListener('keyup', (e) => {
+   const searchString = e.target.value.toLowerCase();
+   const filterCharacters = allCharacters.filter(character => {
 
-      Promise.all(promises).then( results => {
+      return character.name.toLowerCase().includes(searchString) ||
+         character.species.toLowerCase().includes(searchString) ||
+         character.status.toLowerCase().includes(searchString) ||
+         character.origin.toLowerCase().includes(searchString) ||
+         character.location.toLowerCase().includes(searchString);
 
-         allCharacters = results.map( data => ({
-            name: data.name,
-            id: data.id,
-            image: data.image,
-            species: data.species,
-            episode: data.episode,
-            status: data.status,
-            origin: data.origin.name,
-            location: data.location.name,
-         }));
-         displayCharacters(allCharacters);
-      });
-
-};
-
-const fetchAllPages = () => {
-   const url = `https://rickandmortyapi.com/api/character/`;
-   fetch(url)
-   .then (res => res.json())
-   .then (data => {
-      allPages = data.info;
+            
    });
-   forPages(allPages)
+   console.log(filterCharacters);
+   displayCharacters(filterCharacters);
+});
+
+const Characters = async () => {
+   const promises = [];
+
+   const url = `https://rickandmortyapi.com/api/character/?page=${defaultPage}`;
+   promises.push(fetch(url).then(res => res.json().then(data => {
+      const allPages = data.info.pages;
+      allCharacters = data.results;
+      allCharacters.map(result => ({
+         name: result.name,
+         id: result.id,
+         image: result.image,
+         species: result.species,
+         episode: result.episode,
+         status: result.status,
+         origin: result.origin.name,
+         location: result.location.name,
+      }));
+      displayCharacters(allCharacters)
+   })))
 };
 
-const forPages = (allPages) =>{
-   const pagesHTMLString = allPersonage => {
+window.more = async () => {
+   console.log(more);
+   if (defaultPage <= allPages) {
+      defaultPage += 1;
+      Characters();
+   }
+};
 
+window.less = async () => {
+      defaultPage -= 1;
+      Characters();
+};
+
+const forPages = async () => {
+   const pagesHTMLString = allPersonage => {
    `<section>
-   <button id="seeMore">Previus</button>
-   <button id="seeMore">Next</button>
-   </section>
-   `
+   <button id="seeMore" onclick="less()">Previus</button>
+   <button id="seeMore" onclick="more()">Next</button>
+   </section>`
    };
 
    pagination.innerHTML = pagesHTMLString;
 
 };
 
-fetchAllPages();
-
-const displayCharacters = (allCharacters) =>{
-   const characterHTMLString = allCharacters.map ((allPersonage) =>
+const displayCharacters = (allCharacters) => {
+   const characterHTMLString = allCharacters.map((allPersonage) =>
 
    `<li class="cont03" onclick="selectCharacter(${allPersonage.id})">
       <img class="imgCharacteres" src="${allPersonage.image}" alt="rick-and-morty-image">
       <h2 class="name">${allPersonage.name}</h2>
    </li>`)
 
-   .join('');
-   
+      .join('');
+
    fileCharacter.innerHTML = characterHTMLString;
 
 };
 
+
 window.selectCharacter = async (id) => {
+   console.log(id)
    const url = `https://rickandmortyapi.com/api/character/${id}`;
    const res = await fetch(url);
-   allPersonage = await res.json();
+   const allPersonage = await res.json();
 
    loadModal(allPersonage);
 };
@@ -121,11 +122,14 @@ const loadModal = (allPersonage) => {
                   <p class="textModal"><small>First seen in </small><br>${allPersonage.origin.name}</p>
                   <p class="textModal"><small>Last known location </small><br>${allPersonage.location.name}</p>
                </article>
-               <button class="btnEpisodios" onclick="openEpisodes()">Episodes</button>
+               <article class="contEpisodes">
+               <a href="episodes.html" type="button" class="btnEpisodios" onclick=openEpisodes()>Episodes</a>
+               </article>
             </div>
          </div>
       </section>`;
-      fileCharacter.innerHTML = htmlString + fileCharacter.innerHTML;
+   fileCharacter.innerHTML = htmlString + fileCharacter.innerHTML;
+
 };
 
 window.closeModal = async () => {
@@ -133,6 +137,13 @@ window.closeModal = async () => {
    modal.parentElement.removeChild(modal);
 };
 
+//fetchCharacters();
+forPages();
 
-fetchCharacters();
+Characters();
+
+
+
+
+
 

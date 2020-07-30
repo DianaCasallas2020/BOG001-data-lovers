@@ -1,0 +1,39 @@
+// const fetchCharacters = async () => {
+//    const promises = [];
+//    for (let i = 1; i < more; i++) {
+//       const url = `https://rickandmortyapi.com/api/character/${i}`;
+//       promises.push(fetch(url).then(res => res.json()));
+//    };
+
+
+//    Promise.all(promises).then(results => {
+
+//       allCharacters = results.map(data => ({
+//          name: data.name,
+//          id: data.id,
+//          image: data.image,
+//          species: data.species,
+//          episode: data.episode,
+//          status: data.status,
+//          origin: data.origin.name,
+//          location: data.location.name,
+//       }));
+
+//       displayCharacters(allCharacters);
+//    });
+
+// };
+
+// const fetchAllPages = () => {
+//    const url = `https://rickandmortyapi.com/api/character/`;
+//    fetch(url)
+//       .then(res => res.json())
+//       .then(data => {
+//         const allPages = data.info;
+//         const allCharacters = data.results;
+//       });
+
+//    //forPages(allPages)
+// };
+
+// //fetchAllPages();
