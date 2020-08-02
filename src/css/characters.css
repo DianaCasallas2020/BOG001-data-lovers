@@ -236,12 +236,14 @@ input:hover{
     position: fixed;
     top: 0;
     bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     width: 100%;
     height: 100%;
     background: rgba(0, 255, 0, 0.452);
+    overflow-y: scroll;
 }
-
 
 .flex{
     width: 100%;
@@ -259,7 +261,9 @@ input:hover{
     max-width: 200px;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4);
     text-align: center;
+    overflow-y: auto;
 }
+
 
 .close{
     background-color: black;
@@ -339,6 +343,18 @@ small{
     height: 50px;
 }
 
+#showHide{
+    display: none;
+    background-color: #1A1A1A;
+}
+
+.textEpisodes{
+    letter-spacing: 1px;
+    color: #00ff00;
+    font-size: 13px;
+    margin: 10px;
+}
+
 
 
 /*-----------------------------------------------TABLET---------------------------------*/
@@ -385,6 +401,8 @@ small{
 
 .btnEpisodios{
     font-size: 20px; 
+}
+
 }
 
 /*-------------------------------------------------ESCRITORIO--------------------------*/
@@ -455,7 +473,7 @@ small{
 
         .contenido-modal{
             width: 100%;
-            max-width: 250px;
+            max-width: 350px;
         }
 
         small{
@@ -465,3 +483,9 @@ small{
         .textModal{
             font-size: 18px;
         }
+
+        .textEpisodes{
+            font-size: 18px;
+        }
+
+    }

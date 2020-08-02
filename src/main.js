@@ -90,7 +90,6 @@ const displayCharacters = (allCharacters) => {
 
 
 window.selectCharacter = async (id) => {
-   console.log(id)
    const url = `https://rickandmortyapi.com/api/character/${id}`;
    const res = await fetch(url);
    const allPersonage = await res.json();
@@ -118,7 +117,10 @@ const loadModal = (allPersonage) => {
                   <p class="textModal"><small>Last known location </small><br>${allPersonage.location.name}</p>
                </article>
                <article class="contEpisodes">
-               <a href="episodes.html" type="button" class="btnEpisodios" onclick=openEpisodes()>Episodes</a>
+               <a type="button" class="btnEpisodios" onclick=episodesHide()>Episodes</a>
+               </article>
+               <article id="showHide">
+                  <p class="textEpisodes">${allPersonage.episode.join(', ')}</p>
                </article>
             </div>
          </div>
@@ -132,7 +134,26 @@ window.closeModal = async () => {
    modal.parentElement.removeChild(modal);
 };
 
-//fetchCharacters();
+const openEpisodes = () => {
+   document.getElementById('showHide').style.display = 'block';
+};
+const closeEpisodes = () => {
+   document.getElementById('showHide').style.display = 'none';
+};
+
+window.episodesHide = () => {
+   let showHide = document.getElementById('showHide');
+
+   if(showHide.style.display == 'none'){
+      openEpisodes();
+   }else{
+      closeEpisodes();
+   };
+};
+
+
+
+
 forPages();
 
 Characters();
